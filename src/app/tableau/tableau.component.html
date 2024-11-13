@@ -1,0 +1,84 @@
+<div class="pl-40 pt-20">
+  <!--Graph Card-->
+  <div class="bg-white border-transparent rounded-lg shadow-xl">
+    <div class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+      <h5 class="font-bold uppercase text-gray-600">{{titre}}</h5>
+    </div>
+    <div class="">
+
+
+      <div class="relative overflow-x-auto">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+            <th scope="col" class="px-6 py-3">
+              Date
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Total
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Etat
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Description
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+
+          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" ion-item  *ngFor="let c of co ">
+
+            <td class="px-6 py-4">
+              {{c?.dateCommande}}
+            </td>
+            <td class="px-6 py-4">
+              {{c?.total}}
+
+            </td>
+            <td class="px-6 py-4">
+              {{c?.valid}}
+            </td>
+            <td class="px-6 py-4">
+              {{c?.description}}
+            </td>
+          </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <canvas id="chartjs-7" class="chartjs" width="undefined" height="undefined"></canvas>
+      <script>
+        new Chart(document.getElementById("chartjs-7"), {
+          "type": "bar",
+          "data": {
+            "labels": ["January", "February", "March", "April"],
+            "datasets": [{
+              "label": "Page Impressions",
+              "data": [10, 20, 30, 40],
+              "borderColor": "rgb(255, 99, 132)",
+              "backgroundColor": "rgba(255, 99, 132, 0.2)"
+            }, {
+              "label": "Adsense Clicks",
+              "data": [5, 15, 10, 30],
+              "type": "line",
+              "fill": false,
+              "borderColor": "rgb(54, 162, 235)"
+            }]
+          },
+          "options": {
+            "scales": {
+              "yAxes": [{
+                "ticks": {
+                  "beginAtZero": true
+                }
+              }]
+            }
+          }
+        });
+      </script>
+    </div>
+  </div>
+  <!--/Graph Card-->
+</div>
