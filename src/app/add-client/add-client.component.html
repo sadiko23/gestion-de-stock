@@ -1,0 +1,154 @@
+<div class="bg-gray-800     h-full w-full  " >
+  <!--Nav-->
+
+
+
+  <div class="flex flex-col md:flex-row  h-full ">
+
+
+    <navbar [page]="titre1" ></navbar>
+
+    <div class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5 dark:bg-gray-700 dark:bg-gray-700">
+
+      <div class="bg-gray-800 pt-3">
+        <div class="rounded-tl-3xl bg-gradient-to-r from-blue-900 to-gray-800 p-4 shadow text-2xl text-white">
+          <h3 class="font-bold pl-2">gestion de stock</h3>
+        </div>
+      </div>
+      <button id="theme-toggle">
+        <button id="b"  type="button" class="hs-dark-mode-active:hidden block hs-dark-mode font-medium text-gray-800 rounded-full hover:bg-gray-200 focus:outline-none focus:bg-gray-200 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" data-hs-theme-click-value="dark">
+  <span class="group inline-flex shrink-0 justify-center items-center size-9">
+    <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+    </svg>
+  </span>
+        </button>
+
+
+        <button id="theme-toggle-light-icon"  type="button" class="dark:block hidden hs-dark-mode font-medium text-gray-800 rounded-full hover:bg-gray-200 focus:outline-none focus:bg-gray-200 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" data-hs-theme-click-value="light">
+  <span class="group inline-flex shrink-0 justify-center items-center size-9">
+    <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="4"></circle>
+      <path d="M12 2v2"></path>
+      <path d="M12 20v2"></path>
+      <path d="m4.93 4.93 1.41 1.41"></path>
+      <path d="m17.66 17.66 1.41 1.41"></path>
+      <path d="M2 12h2"></path>
+      <path d="M20 12h2"></path>
+      <path d="m6.34 17.66-1.41 1.41"></path>
+      <path d="m19.07 4.93-1.41 1.41"></path>
+    </svg>
+  </span>
+        </button>
+      </button>
+
+      <div class="dark:bg-gray-700 ">
+
+        <!-- component -->
+        <div class="min-h-screen p-6 bg-gray-100 flex items-center justify-center dark:bg-gray-700 ">
+          <div class="container max-w-screen-lg mx-auto">
+            <div>
+              <h2 class="font-semibold text-xl text-gray-600 dark:dark:text-amber-50">Ajouter Client</h2>
+
+              <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
+
+                  <div class="lg:col-span-2">
+                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
+                      <div class="md:col-span-5">
+                        <label for="nom">nom</label>
+                        <input type="text" [(ngModel)]="nom" name="nom" id="nom" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                      </div>
+
+                      <div class="md:col-span-5">
+                        <label for="address">address</label>
+                        <input type="text" [(ngModel)]="address" name="quantite" id="address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                      </div>
+
+                      <div class="md:col-span-3">
+                        <label for="email">email</label>
+                        <input type="text" name="prix" [(ngModel)]="email" id="email" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value=""  />
+                      </div>
+
+                      <div class="md:col-span-2">
+                        <label for="fax">fax</label>
+                        <input type="text" [(ngModel)]="fax" name="fax" id="fax" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value=""  />
+                      </div>
+                      <div class="md:col-span-2">
+                        <label for="telephone">telephone</label>
+                        <input type="text" name="telephone" [(ngModel)]="telephone" id="telephone" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value=""  />
+                      </div>
+
+                      <div class="md:col-span-2">
+                        <label for="capital">capital</label>
+                        <input type="text" name="telephone" [(ngModel)]="capital" id="capital" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value=""  />
+                      </div>
+
+
+
+                      <div class="md:col-span-5 text-right">
+                        <div class="inline-flex items-end">
+                          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="addCliente()">Submit</button>
+                        </div>
+                      </div>
+                      <p *ngIf="res==true; else n" style="color: green" >{{msg}}</p>
+                      <ng-template #n >
+                        <p  style="color:red" >{{msg}}</p>
+
+
+                      </ng-template>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+
+
+        <canvas id="chartjs-7" class="chartjs" width="undefined" height="undefined"></canvas>
+        <script>
+          new Chart(document.getElementById("chartjs-7"), {
+            "type": "bar",
+            "data": {
+              "labels": ["January", "February", "March", "April"],
+              "datasets": [{
+                "label": "Page Impressions",
+                "data": [10, 20, 30, 40],
+                "borderColor": "rgb(255, 99, 132)",
+                "backgroundColor": "rgba(255, 99, 132, 0.2)"
+              }, {
+                "label": "Adsense Clicks",
+                "data": [5, 15, 10, 30],
+                "type": "line",
+                "fill": false,
+                "borderColor": "rgb(54, 162, 235)"
+              }]
+            },
+            "options": {
+              "scales": {
+                "yAxes": [{
+                  "ticks": {
+                    "beginAtZero": true
+                  }
+                }]
+              }
+            }
+          });
+        </script>
+      </div>
+    </div>
+    <!--/Graph Card-->
+  </div>
+
+
+
+
+
+</div>
+
+
+
