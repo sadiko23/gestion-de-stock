@@ -18,7 +18,7 @@ export class SessionManagementService {
     return session ? JSON.parse(session) : null;
   }
   // End the session by removing the session data
-  endSession(): void {
+  public endSession(): void {
     localStorage.removeItem(this.sessionKey);
   }
   // Check if the user is authenticated

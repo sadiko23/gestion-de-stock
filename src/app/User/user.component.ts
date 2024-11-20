@@ -1,21 +1,27 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Client} from '../classes/Client';
+import {SessionManagementService} from '../session-management.service';
+import {Router} from '@angular/router';
+import {User} from '../classes/User';
+
 
 @Component(
   {
-    selector:'client',
-    templateUrl:'client.component.html'
+    selector:'user',
+    templateUrl:'user.component.html'
   }
 )
-export class ClientComponent implements OnInit{
-  public client:Array<Client> =new Array<Client>();
+export class UserComponent implements OnInit{
+  public users: Array<User> | undefined;
 
-  constructor(private http:HttpClient) {
+
+  constructor(private  http:HttpClient ,private sessionService: SessionManagementService,private router:Router) {
+
+
   }
 
   ngOnInit(): void {
-    this.http.get<Array<Client>>('http://127.0.0.1:8080/Clients').subscribe(client=>this.client=client)
+    this.http.get<Array<User>|undefined>("http://localhost:8080/users").subscribe(e=>{this.users=e})
 
 
 
@@ -72,5 +78,15 @@ export class ClientComponent implements OnInit{
   }
 
 
-  titre1: string="client";
+
+  titre1: string="user";
+  nom: any;
+  role: any;
+  Direction: any;
+  res: boolean=false;
+  msg: string="";
+
+  addUser() {
+
+  }
 }

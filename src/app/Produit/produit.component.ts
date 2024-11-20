@@ -1,22 +1,23 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Client} from '../classes/Client';
+import {Produit} from '../classes/Produit';
 
 @Component(
   {
-    selector:'client',
-    templateUrl:'client.component.html'
+    selector:'produit',
+    templateUrl:'produit.component.html'
   }
 )
-export class ClientComponent implements OnInit{
-  public client:Array<Client> =new Array<Client>();
+export class ProduitComponent implements OnInit{
+  public produitBase:Array<Produit>=new Array<Produit>();
+  public produitFinit:Array<Produit>=new Array<Produit>();
 
   constructor(private http:HttpClient) {
   }
 
   ngOnInit(): void {
-    this.http.get<Array<Client>>('http://127.0.0.1:8080/Clients').subscribe(client=>this.client=client)
-
+      this.http.get<Array<Produit>>("http://localhost:8080/produitBase").subscribe(produit=>this.produitBase=produit);
+      this.http.get<Array<Produit>>("http://localhost:8080/produitFinit").subscribe(produit=>this.produitFinit=produit);
 
 
 
@@ -72,5 +73,5 @@ export class ClientComponent implements OnInit{
   }
 
 
-  titre1: string="client";
+  titre1: string="produit";
 }

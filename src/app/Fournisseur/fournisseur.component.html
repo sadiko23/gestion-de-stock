@@ -1,0 +1,163 @@
+<div class="bg-gray-800     h-full w-full  " >
+  <!--Nav-->
+
+
+
+  <div class="flex flex-col md:flex-row  h-screen">
+
+
+    <navbar [page]="titre1" ></navbar>
+
+    <div class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5 dark:bg-gray-700">
+
+      <div class="bg-gray-800 pt-3">
+        <div class="rounded-tl-3xl bg-gradient-to-r from-blue-900 to-gray-800 p-4 shadow text-2xl text-white">
+          <h3 class="font-bold pl-2">gestion de stock</h3>
+        </div>
+      </div>
+      <button id="theme-toggle">
+        <button id="b"  type="button" class="hs-dark-mode-active:hidden block hs-dark-mode font-medium text-gray-800 rounded-full hover:bg-gray-200 focus:outline-none focus:bg-gray-200 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" data-hs-theme-click-value="dark">
+  <span class="group inline-flex shrink-0 justify-center items-center size-9">
+    <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+    </svg>
+  </span>
+        </button>
+
+
+        <button id="theme-toggle-light-icon"  type="button" class="dark:block hidden hs-dark-mode font-medium text-gray-800 rounded-full hover:bg-gray-200 focus:outline-none focus:bg-gray-200 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" data-hs-theme-click-value="light">
+  <span class="group inline-flex shrink-0 justify-center items-center size-9">
+    <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="4"></circle>
+      <path d="M12 2v2"></path>
+      <path d="M12 20v2"></path>
+      <path d="m4.93 4.93 1.41 1.41"></path>
+      <path d="m17.66 17.66 1.41 1.41"></path>
+      <path d="M2 12h2"></path>
+      <path d="M20 12h2"></path>
+      <path d="m6.34 17.66-1.41 1.41"></path>
+      <path d="m19.07 4.93-1.41 1.41"></path>
+    </svg>
+  </span>
+        </button>
+      </button>
+
+      <div class=" ">
+
+
+        <div class="pl-40 pt-32 pr-40">
+          <!--Graph Card-->
+          <div class="bg-white border-transparent rounded-lg shadow-xl">
+            <div class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+              <h5 class="font-bold uppercase text-gray-600">Tableau des Fournisseur</h5>
+            </div>
+            <div class="">
+
+
+              <div class="relative overflow-x-auto">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                  <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                  <tr>
+                    <th scope="col" class="px-6 py-3">
+                      Nom
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      Address
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      Email
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      Fax
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      Telephone
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      Capital
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      Rip
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+
+                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"  *ngFor="let c of fournisseurs ">
+
+                    <td class="px-6 py-4" >
+                      {{c?.nom}}
+                    </td>
+                    <td class="px-6 py-4" >
+                      {{c?.address}}
+                    </td>
+                    <td class="px-6 py-4">
+                      {{c?.email}}
+
+                    </td>
+                    <td class="px-6 py-4">
+                      {{c?.fax}}
+                    </td>
+                    <td class="px-6 py-4">
+                      {{c?.telephone}}
+                    </td>
+                    <td class="px-6 py-4">
+                      {{c?.capital}}
+                    </td>
+                    <td class="px-6 py-4">
+                      {{c?.rip}}
+                    </td>
+
+                  </tr>
+
+                  </tbody>
+                </table>
+              </div>
+
+              <canvas id="chartjs-7" class="chartjs" width="undefined" height="undefined"></canvas>
+              <script>
+                new Chart(document.getElementById("chartjs-7"), {
+                  "type": "bar",
+                  "data": {
+                    "labels": ["January", "February", "March", "April"],
+                    "datasets": [{
+                      "label": "Page Impressions",
+                      "data": [10, 20, 30, 40],
+                      "borderColor": "rgb(255, 99, 132)",
+                      "backgroundColor": "rgba(255, 99, 132, 0.2)"
+                    }, {
+                      "label": "Adsense Clicks",
+                      "data": [5, 15, 10, 30],
+                      "type": "line",
+                      "fill": false,
+                      "borderColor": "rgb(54, 162, 235)"
+                    }]
+                  },
+                  "options": {
+                    "scales": {
+                      "yAxes": [{
+                        "ticks": {
+                          "beginAtZero": true
+                        }
+                      }]
+                    }
+                  }
+                });
+              </script>
+            </div>
+          </div>
+          <!--/Graph Card-->
+        </div>
+
+
+
+
+
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
+

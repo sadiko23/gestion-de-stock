@@ -4,7 +4,7 @@ import {List} from 'postcss/lib/list';
 import {AppComponent} from '../app.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {CommandeFournisseur} from '../Dashboard/commandeFournisseur';
+import {CommandeFournisseur} from '../classes/commandeFournisseur';
 
 @Component(
   {
@@ -17,7 +17,7 @@ import {CommandeFournisseur} from '../Dashboard/commandeFournisseur';
 )
 export class TableauComponent {
         @Input() titre="";
-        @Input({transform: (value: Array<CommandeFournisseur>|undefined ): Array<CommandeFournisseur> |undefined =>value, alias: "commande"}) co?:Array<CommandeFournisseur>|undefined;
+        @Input({transform: (value: Array<any>|undefined ): Array<any> |undefined =>value, alias: "commande"}) co?:Array<any>|undefined;
 
 
 

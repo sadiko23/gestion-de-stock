@@ -6,5 +6,5 @@ export class CommandeFournisseur{
   public dateCommande:Date=new Date();
   public total:number=0;
   public valid:boolean=false;
-  public description:String="";
+  public description:string="";
 }

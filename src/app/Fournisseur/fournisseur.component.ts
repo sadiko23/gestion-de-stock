@@ -1,21 +1,22 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Client} from '../classes/Client';
+import {Fournisseur} from '../classes/Fournisseur';
 
 @Component(
   {
     selector:'client',
-    templateUrl:'client.component.html'
+    templateUrl:'fournisseur.component.html'
   }
 )
-export class ClientComponent implements OnInit{
-  public client:Array<Client> =new Array<Client>();
+export class FournisseurComponent implements OnInit{
+  public fournisseurs:Array<Fournisseur> =new Array<Fournisseur>();
 
   constructor(private http:HttpClient) {
   }
 
   ngOnInit(): void {
-    this.http.get<Array<Client>>('http://127.0.0.1:8080/Clients').subscribe(client=>this.client=client)
+    this.http.get<Array<Fournisseur>>('http://127.0.0.1:8080/fournisseur').subscribe(client=>this.fournisseurs=client)
 
 
 
@@ -72,5 +73,5 @@ export class ClientComponent implements OnInit{
   }
 
 
-  titre1: string="client";
+  titre1: string="fournisseur";
 }
