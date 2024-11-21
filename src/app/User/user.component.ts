@@ -85,8 +85,43 @@ export class UserComponent implements OnInit{
   Direction: any;
   res: boolean=false;
   msg: string="";
+  password: string="";
 
   addUser() {
+    let user=new User();
+    user.nom=this.nom;
+    user.role=this.role;
+    user.direction=this.Direction;
+    user.password=this.password;
 
+     this.http.post<boolean>("http://127.0.0.1:8080/addUser",user).subscribe(res=>{this.res=res})
+
+     if (this.res){
+       this.msg="user added Successfully.";
+       this.reload();
+
+    }else {
+       this.msg="user added Failed.";
+       this.reload();
+     }
+  }
+
+  async deleteUser(id: number | undefined) {
+    this.http.delete("http://127.0.0.1:8080/deleteUser", {body: {id: id}}).subscribe()
+
+    this.reload()
+
+  }
+   reload() {
+     this.router.navigateByUrl('/',{skipLocationChange:true}).then(()=>{
+     this.router.navigate([`/user`]).then(()=>{
+     })
+   })
+
+  }
+
+  onChange(event:Event) {
+    const selectElement = event.target as HTMLSelectElement;
+    this.role=selectElement.value;
   }
 }

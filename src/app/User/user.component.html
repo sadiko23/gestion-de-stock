@@ -103,7 +103,7 @@
                       {{c?.role}}
                     </td>
                     <td class="px-6 py-4">
-                      <button  class="rounded-md bg-red-600 py-3 px-2 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-red-700 focus:shadow-none active:bg-red-700 hover:bg-red-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2" type="button">
+                      <button (click)="deleteUser(c?.id)" class="rounded-md bg-red-600 py-3 px-2 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-red-700 focus:shadow-none active:bg-red-700 hover:bg-red-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2" type="button">
                         Delete
                       </button>
                     </td><td class="px-6 py-4">
@@ -169,18 +169,22 @@
                         <label for="nom">nom</label>
                         <input type="text" [(ngModel)]="nom" name="nom" id="nom" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                       </div>
+                      <div class="md:col-span-5">
+                        <label for="direction">Direction</label>
+                        <input type="text" [(ngModel)]="Direction" name="nom" id="direction" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                      </div>
                       <div class="lg:col-span-2">
                         <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
                           <div class="md:col-span-5">
                             <label for="nom">role</label>
-                            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                              <option>ADMIN</option>
-                              <option>USER</option>
+                            <select (change)="onChange($event)" [ngModel]="role" id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                              <option value="ADMIN"   >ADMIN</option>
+                              <option value="USER" >USER</option>
                             </select>                          </div>
 
                       <div class="md:col-span-5">
                         <label for="password">password</label>
-                        <input type="password" [(ngModel)]="role" name="password" id="password" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                        <input type="password" [(ngModel)]="password" name="password" id="password" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                       </div>
 
 
@@ -213,7 +217,9 @@
 
 
             </div>
-          </div>
+        </div>
 
         </div>
+</div>
+  </div>
 </div>
