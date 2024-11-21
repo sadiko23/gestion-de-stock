@@ -12,7 +12,7 @@ export class NavComponent{
 
 
   protected readonly SessionManagementService = SessionManagementService;
-  constructor(private session:SessionManagementService,private router:Router) {
+  constructor(protected session:SessionManagementService, private router:Router) {
 
   }
   logout(): void {
